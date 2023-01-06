@@ -1,7 +1,7 @@
 :root {
-    --main-bg-color: #eff6ff;
-    --header-bg-color: #fffdfd;
+    --header-bg-color: #fafaf9;
     --header-icon-margin: 130px;
+    --main-bg-color: #eeeeee;
 }
 
 * {
