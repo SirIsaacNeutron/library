@@ -11,7 +11,7 @@
 
 body {
     display: grid;
-    grid-template-rows: 1fr 0.8fr 5fr 0.8fr;
+    grid-template-rows: 1fr 0.5fr 5fr 0.8fr;
 
     min-height: 100vh;
 
@@ -42,6 +42,20 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 20px;
+}
+
+.add-button {
+    border: none;
+    border-radius: 5px;
+
+    font-size: 1.5rem;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-button:hover {
+    background-color: #cacaca;
 }
 
 main {
