@@ -2,6 +2,7 @@
     --header-bg-color: #fafaf9;
     --header-icon-margin: 130px;
     --main-bg-color: #eeeeee;
+    --font-color: black;
 }
 
 * {
@@ -21,6 +22,11 @@ body {
 main,
 footer {
     background-color: var(--main-bg-color);
+}
+
+button {
+    font-family: inherit;
+    color: var(--font-color); /* This should force the button color to be black on mobile */
 }
 
 /* Header */
