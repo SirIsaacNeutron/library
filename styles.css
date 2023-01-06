@@ -43,6 +43,7 @@ header {
 
 header h1 {
     margin-left: var(--header-icon-margin);
+    font-weight: 500;
 }
 
 /* Main */
