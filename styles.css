@@ -11,7 +11,7 @@
 
 body {
     display: grid;
-    grid-template-rows: 1fr 0.8fr 5fr 0.5fr;
+    grid-template-rows: 1fr 0.8fr 5fr 0.8fr;
 
     min-height: 100vh;
 }
