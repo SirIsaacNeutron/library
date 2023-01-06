@@ -14,6 +14,8 @@ body {
     grid-template-rows: 1fr 0.8fr 5fr 0.8fr;
 
     min-height: 100vh;
+
+    font-family: "Lora", serif;
 }
 
 main,
