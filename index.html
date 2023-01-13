@@ -12,14 +12,31 @@
         <link rel="stylesheet" href="styles.css" />
 
         <script src="https://kit.fontawesome.com/cffa455509.js" crossorigin="anonymous"></script>
+
+        <script src="script.js" defer></script>
     </head>
     <body>
         <header>
             <h1>Library</h1>
         </header>
         <div class="button-area">
-            <button class="add-button">+ Add book</button>
+            <button data-modal-target="#modal" class="add-button">+ Add book</button>
+            <div class="modal" id="modal">
+                <div class="modal-header">
+                    <div class="title">Add new book</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque obcaecati iste officiis deleniti sapiente
+                    dicta voluptatum possimus itaque aliquam odit in dolorem, illo reiciendis, commodi minima esse unde eius
+                    ex odio vel ut alias. Expedita iure recusandae numquam necessitatibus nihil ab nisi similique incidunt
+                    adipisci asperiores. Porro, deleniti molestias quod cupiditate iure ea sint enim explicabo quam odit
+                    dolor at culpa aperiam aut aliquam eius sit nobis labore nulla dignissimos blanditiis maxime. Fuga hic
+                    eveniet assumenda sint repellat numquam enim.
+                </div>
+            </div>
         </div>
+        <div id="overlay"></div>
         <main>
             <p>test</p>
         </main>

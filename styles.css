@@ -46,6 +46,77 @@ header h1 {
     font-weight: 500;
 }
 
+/* Modal */
+
+.modal {
+    padding: 10px 15px;
+    position: fixed;
+
+    /* Center the top left corner of the modal */
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) scale(0); /* No display: none; so we can transition */
+    border: 1px solid black;
+    border-radius: 10px;
+
+    z-index: 10; /* Modal must draw above everything else */
+    background-color: white; /* We need this to make the modal have a different bg color than the overlay */
+
+    max-width: 80%;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* Overlay */
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    pointer-events: none; /* Clicks outside of the overlay won't do anything */
+
+    transition: all 0.2s ease-in-out;
+}
+
+#overlay.active {
+    pointer-events: all;
+    opacity: 1;
+}
+
 /* Main */
 
 .button-area {
