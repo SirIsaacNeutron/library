@@ -62,7 +62,7 @@ function addBookToLibrary(e) {
 }
 
 function updateDisplayedLibrary() {
-    const previousBookCards = document.querySelector(".book-card")
+    const previousBookCards = document.querySelectorAll(".book-card")
 
     if (previousBookCards !== null) {
         previousBookCards.forEach(bookCard => bookCard.remove())
@@ -71,6 +71,7 @@ function updateDisplayedLibrary() {
     const bookCardArea = document.querySelector("main")
     library.forEach((book, index) => {
         const newBookCard = document.createElement("div")
+        newBookCard.classList.add("book-card")
 
         const title = document.createElement("h2")
         title.textContent = book.title
