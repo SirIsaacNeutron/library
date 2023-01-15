@@ -57,7 +57,7 @@ header h1 {
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%, -50%) scale(1); /* No display: none; so we can transition */
+    transform: translate(-50%, -50%) scale(0); /* No display: none; so we can transition */
     border: 1px solid black;
     border-radius: 10px;
 

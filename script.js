@@ -1,7 +1,7 @@
 const openModalButton = document.querySelector("[data-modal-target]")
 const overlay = document.getElementById("overlay")
 
-let library = []
+const library = []
 
 function openModal(modal) {
     if (modal == null) { return }
@@ -37,6 +37,14 @@ function Book(title, author, pages, isRead) {
 }
 
 modalForm.addEventListener("submit", e => {
+    addBookToLibrary(e)
+    const modal = document.getElementById("modal")
+    closeModal(modal)
+    modalForm.reset() // when user re-opens form, it will be blank
+})
+
+
+function addBookToLibrary(e) {
     e.preventDefault()
     const formData = new FormData(e.target)
     const formObject = Object.fromEntries(formData)
@@ -48,10 +56,38 @@ modalForm.addEventListener("submit", e => {
         isRead = true
     }
 
-    const bookObject = {
-        ...formObject,
-        isRead
+   const book = new Book(formObject.title, formObject.author, formObject.pages, isRead)
+   library.push(book)
+   updateDisplayedLibrary()
+}
+
+function updateDisplayedLibrary() {
+    const previousBookCards = document.querySelector(".book-card")
+
+    if (previousBookCards !== null) {
+        previousBookCards.forEach(bookCard => bookCard.remove())
     }
 
-    console.log(bookObject)
-})
+    const bookCardArea = document.querySelector("main")
+    library.forEach((book, index) => {
+        const newBookCard = document.createElement("div")
+
+        const title = document.createElement("h2")
+        title.textContent = book.title
+        newBookCard.appendChild(title)
+
+        const author = document.createElement("p")
+        author.textContent = book.author
+        newBookCard.appendChild(author)
+
+        const pages = document.createElement("p")
+        pages.textContent = book.pages
+        newBookCard.appendChild(pages)
+
+        const isRead = document.createElement("p")
+        isRead.textContent = book.isRead
+        newBookCard.appendChild(isRead)
+
+        bookCardArea.appendChild(newBookCard)
+    })
+}
