@@ -1,5 +1,4 @@
 const openModalButton = document.querySelector("[data-modal-target]")
-const closeModalButton = document.querySelector("[data-close-button")
 const overlay = document.getElementById("overlay")
 
 function openModal(modal) {
@@ -17,11 +16,6 @@ function closeModal(modal) {
 openModalButton.addEventListener("click", () => {
     const modal = document.getElementById("modal")
     openModal(modal)
-})
-
-closeModalButton.addEventListener("click", () => {
-    const modal = document.getElementById("modal")
-    closeModal(modal)
 })
 
 overlay.addEventListener("click", () => {

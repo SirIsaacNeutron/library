@@ -22,18 +22,17 @@
         <div class="button-area">
             <button data-modal-target="#modal" class="add-button">+ Add book</button>
             <div class="modal" id="modal">
-                <div class="modal-header">
-                    <div class="title">Add new book</div>
-                    <button data-close-button class="close-button">&times;</button>
-                </div>
-                <div class="modal-body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque obcaecati iste officiis deleniti sapiente
-                    dicta voluptatum possimus itaque aliquam odit in dolorem, illo reiciendis, commodi minima esse unde eius
-                    ex odio vel ut alias. Expedita iure recusandae numquam necessitatibus nihil ab nisi similique incidunt
-                    adipisci asperiores. Porro, deleniti molestias quod cupiditate iure ea sint enim explicabo quam odit
-                    dolor at culpa aperiam aut aliquam eius sit nobis labore nulla dignissimos blanditiis maxime. Fuga hic
-                    eveniet assumenda sint repellat numquam enim.
-                </div>
+                <form class="modal-form">
+                    <h3 class="modal-header">Add new book</h3>
+                    <input type="text" name="title" placeholder="Title" required />
+                    <input type="text" name="author" placeholder="Author" required />
+                    <input type="number" name="pages" placeholder="Pages" required />
+                    <div class="modal-checkbox-area">
+                        <label for="isRead">Read yet?</label>
+                        <input type="checkbox" id="isRead" />
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
         <div id="overlay"></div>
