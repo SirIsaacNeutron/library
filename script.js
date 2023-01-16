@@ -121,6 +121,7 @@ function createBookCard(index, title, author, pages, isRead) {
     newBookCard.appendChild(bookPages)
 
     const isReadButton = document.createElement("button")
+    isReadButton.classList.add("read-button")
     if (isRead) {
         isReadButton.textContent = "Read"
         isReadButton.classList.add("read")
