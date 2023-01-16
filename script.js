@@ -71,33 +71,7 @@ function updateDisplayedLibrary() {
         previousBookCards.forEach(bookCard => bookCard.remove())
     }
 
-    // const bookCardArea = document.querySelector("main")
     library.forEach((book, index) => {
-        // const newBookCard = document.createElement("div")
-        // newBookCard.classList.add("book-card")
-
-        // const title = document.createElement("h2")
-        // title.textContent = book.title
-        // newBookCard.appendChild(title)
-
-        // const author = document.createElement("p")
-        // author.textContent = book.author
-        // newBookCard.appendChild(author)
-
-        // const pages = document.createElement("p")
-        // pages.textContent = book.pages
-        // newBookCard.appendChild(pages)
-
-        // const isRead = document.createElement("button")
-        // if (book.isRead) {
-        //     isRead.textContent = "Read"
-        // }
-        // else {
-        //     isRead.textContent = "Not Read"
-        // }
-        // newBookCard.appendChild(isRead)
-
-        // bookCardArea.appendChild(newBookCard)
         createBookCard(index, book.title, book.author, book.pages, book.isRead)
     })
 }
@@ -140,10 +114,12 @@ function createBookCard(index, title, author, pages, isRead) {
         if (selectedBook.isRead) {
             isReadButton.classList.remove("read")
             isReadButton.classList.add("not-read")
+            isReadButton.textContent = "Not Read"
         }
         else {
             isReadButton.classList.remove("not-read")
             isReadButton.classList.add("read")
+            isReadButton.textContent = "Read"
         }
         selectedBook.toggleRead()
     })
