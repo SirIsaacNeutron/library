@@ -4,6 +4,7 @@
     --main-bg-color: #eeeeee;
     --font-color: black;
     --submit-btn-bg-color: #92ff95;
+    --delete-button-bg-color: #ffaaaa;
 }
 
 * {
@@ -202,11 +203,15 @@ main {
 }
 
 .not-read {
-    background-color: rgb(255, 170, 170);
+    background-color: var(--main-bg-color);
 }
 
 .read {
     background-color: #b8ff9f;
+}
+
+.delete-button {
+    background-color: var(--delete-button-bg-color);
 }
 
 /* Footer */

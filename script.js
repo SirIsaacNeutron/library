@@ -131,6 +131,10 @@ function createBookCard(index, title, author, pages, isRead) {
     }
 
     isReadButton.addEventListener("click", () => {
+        // The function for each book in library will be different
+        // For the book at index 0, the function generated here will have selectedBook = library[0]
+        // For index 1, selectedBook = library[1]
+        // etc.
         const selectedBook = library[index]
         if (selectedBook.isRead) {
             isReadButton.classList.remove("read")
@@ -142,8 +146,19 @@ function createBookCard(index, title, author, pages, isRead) {
         }
         selectedBook.toggleRead()
     })
-
     newBookCard.appendChild(isReadButton)
+
+    const deleteButton = document.createElement("button")
+    deleteButton.textContent = "Delete!"
+    deleteButton.classList.add("delete-button")
+    deleteButton.addEventListener("click", () => {
+        // https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array
+        library.splice(index, 1)
+        // I don't think this will be very efficient when library.length is very high
+        // But as I remember a programmer saying, premature optimization is the root of all evil :)
+        updateDisplayedLibrary()
+    })
+    newBookCard.appendChild(deleteButton)
 
     bookCardArea.appendChild(newBookCard)
 }
