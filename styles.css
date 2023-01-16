@@ -34,6 +34,10 @@ button {
     outline: none;
 }
 
+button:hover {
+    filter: brightness(90%);
+}
+
 /* Header */
 
 header {
@@ -94,10 +98,6 @@ header h1 {
     border: none;
     border-radius: 6px;
     transition: all 0.2s ease-in-out;
-}
-
-.modal-form button:hover {
-    filter: brightness(90%);
 }
 
 .modal-form input[type="text"],
@@ -171,8 +171,42 @@ input[type="number"] {
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+
+    /* This prevents book-cards from stretching to fill a lot of the screen */
+    grid-template-rows: 1fr 1fr;
+
     padding: 50px var(--header-icon-margin) 10px;
+
+    gap: 20px;
+}
+
+/* Book Cards */
+
+.book-card {
+    background-color: var(--header-bg-color);
+    border-radius: 10px;
+    max-width: 350px;
+
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.book-card button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.not-read {
+    background-color: rgb(255, 170, 170);
+}
+
+.read {
+    background-color: #b8ff9f;
 }
 
 /* Footer */

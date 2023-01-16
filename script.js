@@ -29,13 +29,6 @@ overlay.addEventListener("click", () => {
 
 const modalForm = document.querySelector(".modal-form")
 
-function Book(title, author, pages, isRead) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.isRead = isRead
-}
-
 modalForm.addEventListener("submit", e => {
     addBookToLibrary(e)
     const modal = document.getElementById("modal")
@@ -43,6 +36,16 @@ modalForm.addEventListener("submit", e => {
     modalForm.reset() // when user re-opens form, it will be blank
 })
 
+function Book(title, author, pages, isRead) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.isRead = isRead
+}
+
+Book.prototype.toggleRead = function() {
+    this.isRead = !this.isRead
+}
 
 function addBookToLibrary(e) {
     e.preventDefault()
@@ -68,27 +71,89 @@ function updateDisplayedLibrary() {
         previousBookCards.forEach(bookCard => bookCard.remove())
     }
 
-    const bookCardArea = document.querySelector("main")
+    // const bookCardArea = document.querySelector("main")
     library.forEach((book, index) => {
-        const newBookCard = document.createElement("div")
-        newBookCard.classList.add("book-card")
+        // const newBookCard = document.createElement("div")
+        // newBookCard.classList.add("book-card")
 
-        const title = document.createElement("h2")
-        title.textContent = book.title
-        newBookCard.appendChild(title)
+        // const title = document.createElement("h2")
+        // title.textContent = book.title
+        // newBookCard.appendChild(title)
 
-        const author = document.createElement("p")
-        author.textContent = book.author
-        newBookCard.appendChild(author)
+        // const author = document.createElement("p")
+        // author.textContent = book.author
+        // newBookCard.appendChild(author)
 
-        const pages = document.createElement("p")
-        pages.textContent = book.pages
-        newBookCard.appendChild(pages)
+        // const pages = document.createElement("p")
+        // pages.textContent = book.pages
+        // newBookCard.appendChild(pages)
 
-        const isRead = document.createElement("p")
-        isRead.textContent = book.isRead
-        newBookCard.appendChild(isRead)
+        // const isRead = document.createElement("button")
+        // if (book.isRead) {
+        //     isRead.textContent = "Read"
+        // }
+        // else {
+        //     isRead.textContent = "Not Read"
+        // }
+        // newBookCard.appendChild(isRead)
 
-        bookCardArea.appendChild(newBookCard)
+        // bookCardArea.appendChild(newBookCard)
+        createBookCard(index, book.title, book.author, book.pages, book.isRead)
     })
 }
+
+function createBookCard(index, title, author, pages, isRead) {
+    const bookCardArea = document.querySelector("main")
+
+    const newBookCard = document.createElement("div")
+    newBookCard.classList.add("book-card")
+
+    const bookTitle = document.createElement("h2")
+    bookTitle.textContent = title
+    newBookCard.appendChild(bookTitle)
+
+    const bookAuthor = document.createElement("p")
+    bookAuthor.textContent = author
+    newBookCard.appendChild(bookAuthor)
+
+    const bookPages = document.createElement("p")
+    bookPages.textContent = `${pages} pages`
+    newBookCard.appendChild(bookPages)
+
+    const isReadButton = document.createElement("button")
+    if (isRead) {
+        isReadButton.textContent = "Read"
+        isReadButton.classList.add("read")
+    }
+    else {
+        isReadButton.textContent = "Not Read"
+        isReadButton.classList.add("not-read")
+    }
+
+    isReadButton.addEventListener("click", () => {
+        const selectedBook = library[index]
+        if (selectedBook.isRead) {
+            isReadButton.classList.remove("read")
+            isReadButton.classList.add("not-read")
+        }
+        else {
+            isReadButton.classList.remove("not-read")
+            isReadButton.classList.add("read")
+        }
+        selectedBook.toggleRead()
+    })
+
+    newBookCard.appendChild(isReadButton)
+
+    bookCardArea.appendChild(newBookCard)
+}
+
+function createTestCards() {
+    for (let i = 0; i < 4; ++i) {
+        const book = new Book(`Test ${i}`, "A. Man", (i + 1) * 10, false)
+        library.push(book)
+        createBookCard(i, book.title, book.author, book.pages, book.isRead)
+    }
+}
+
+createTestCards()
