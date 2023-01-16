@@ -164,6 +164,7 @@ function createBookCard(index, title, author, pages, isRead) {
     bookCardArea.appendChild(newBookCard)
 }
 
+/*
 function createTestCards() {
     for (let i = 0; i < 4; ++i) {
         const book = new Book(`Test ${i}`, "A. Man", (i + 1) * 10, false)
@@ -173,3 +174,4 @@ function createTestCards() {
 }
 
 createTestCards()
+*/
