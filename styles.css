@@ -4,7 +4,7 @@
     --main-bg-color: #eeeeee;
     --font-color: black;
     --submit-btn-bg-color: #92ff95;
-    --delete-button-bg-color: #ffaaaa;
+    --delete-button-bg-color: #ff5050;
 }
 
 * {
@@ -33,10 +33,6 @@ button {
     color: inherit;
     cursor: pointer;
     outline: none;
-}
-
-button:hover {
-    filter: brightness(90%);
 }
 
 /* Header */
@@ -99,6 +95,10 @@ header h1 {
     border: none;
     border-radius: 6px;
     transition: all 0.2s ease-in-out;
+}
+
+.modal-form button:hover {
+    filter: brightness(90%);
 }
 
 .modal-form input[type="text"],
@@ -210,6 +210,10 @@ main {
     margin-top: 15px;
 }
 
+.read-button:hover {
+    filter: brightness(90%);
+}
+
 .not-read {
     background-color: var(--main-bg-color);
 }
@@ -218,9 +222,17 @@ main {
     background-color: #b8ff9f;
 }
 
-.delete-button {
-    background-color: var(--delete-button-bg-color);
+/* Without the main selector here, this CSS would get overridden */
+main .delete-button {
+    border: 1px solid var(--delete-button-bg-color);
+    background-color: var(--header-bg-color);
     margin-top: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+main .delete-button:hover {
+    color: white;
+    background-color: var(--delete-button-bg-color);
 }
 
 /* Footer */
