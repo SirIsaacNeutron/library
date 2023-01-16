@@ -253,3 +253,17 @@ footer {
 .fa-github:hover {
     transform: rotate(360deg) scale(1.2);
 }
+
+@media (max-width: 500px) {
+    .modal-header {
+        font-weight: 200;
+    }
+
+    .modal-form button {
+        font-weight: 100;
+    }
+
+    .book-card h2 {
+        font-weight: 300;
+    }
+}
