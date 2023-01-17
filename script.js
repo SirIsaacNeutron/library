@@ -79,7 +79,7 @@ function updateDisplayedLibrary() {
 function createBookCard(index, title, author, pages, isRead) {
     const bookCardArea = document.querySelector("main")
 
-    const newBookCard = document.createElement("div")
+    const newBookCard = document.createElement("article")
     newBookCard.classList.add("book-card")
 
     const bookTitle = document.createElement("h2")
