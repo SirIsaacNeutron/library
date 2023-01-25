@@ -36,15 +36,19 @@ modalForm.addEventListener("submit", e => {
     modalForm.reset() // when user re-opens form, it will be blank
 })
 
-function Book(title, author, pages, isRead) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.isRead = isRead
-}
+class Book {
+    constructor(title, author, pages, isRead) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.isRead = isRead
 
-Book.prototype.toggleRead = function() {
-    this.isRead = !this.isRead
+        this.toggleRead = this.toggleRead.bind(this)
+    }
+
+    toggleRead() {
+        this.isRead = !this.isRead
+    }
 }
 
 function addBookToLibrary(e) {
